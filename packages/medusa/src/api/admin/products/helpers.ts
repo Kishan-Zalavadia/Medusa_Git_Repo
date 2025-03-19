@@ -34,7 +34,12 @@ export const remapKeysForProduct = (selectFields: string[]) => {
       fieldName.replace("variants.prices.", "variants.price_set.prices.")
     )
 
-  return [...productFields, ...pricingFields]
+  const customFields = ["brand"]
+  const allFields = [
+    ...new Set([...productFields, ...pricingFields, ...customFields]),
+  ]
+  return allFields
+  // return [...productFields, ...pricingFields]
 }
 
 export const remapKeysForVariant = (selectFields: string[]) => {
@@ -54,6 +59,7 @@ export const remapKeysForVariant = (selectFields: string[]) => {
 export const remapProductResponse = (
   product: ProductDTO
 ): HttpTypes.AdminProduct => {
+  console.log(product) // console log from kishan
   return {
     ...product,
     variants: product.variants?.map(remapVariantResponse),

@@ -17,6 +17,7 @@ export interface AdminProductResponse {
    * The product's details.
    */
   product: AdminProduct
+
 }
 
 export type AdminProductListResponse = PaginatedResponse<{

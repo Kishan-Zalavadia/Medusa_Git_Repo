@@ -15,6 +15,7 @@ export const GET = async (
   req: AuthenticatedMedusaRequest,
   res: MedusaResponse<HttpTypes.AdminProductResponse>
 ) => {
+  console.log(req.queryConfig.fields)
   const selectFields = remapKeysForProduct(req.queryConfig.fields ?? [])
   const product = await refetchEntity(
     "product",

@@ -152,6 +152,7 @@ export interface ProductDTO {
    * Holds custom data in key-value pairs.
    */
   metadata?: MetadataType
+  
 }
 
 /**
